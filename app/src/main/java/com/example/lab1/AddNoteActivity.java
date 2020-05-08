@@ -2,6 +2,7 @@ package com.example.lab1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,6 +14,13 @@ import android.widget.Toast;
 public class AddNoteActivity extends AppCompatActivity {
 
     public static final String EXTRA_TITLE =
+            "com.codinginflow.architectureexample.EXTRA_TITLE";
+
+    public static final String EXTRA_DESCRIPTION =
+            "com.codinginflow.architectureexample.EXTRA_DESCRIPTION";
+
+    public static final String EXTRA_PRIORITY =
+            "com.codinginflow.architectureexample.EXTRA_PRIORITY";
 
 
     private EditText editTextTitle;
@@ -45,6 +53,13 @@ public class AddNoteActivity extends AppCompatActivity {
             return;
         }
 
+        Intent data = new Intent();
+        data.putExtra(EXTRA_TITLE, title);
+        data.putExtra(EXTRA_DESCRIPTION, description);
+        data.putExtra(EXTRA_PRIORITY, priority);
+
+        setResult(RESULT_OK, data);
+        finish();
     }
 
     @Override
@@ -57,8 +72,7 @@ public class AddNoteActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.save_note
-                ;
+            case R.id.save_note:
                 saveNote();
                 return true;
             default:
