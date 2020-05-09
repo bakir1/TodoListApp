@@ -1,5 +1,9 @@
 # TodoListApp
 
+This project is used for university to create todo app for my lab task. 
+
+work successfully !!!
+
 instructions of the app:
 
 -- if you want to delete you just swipe left or right and you delete a note
